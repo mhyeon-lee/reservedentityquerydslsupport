@@ -24,5 +24,4 @@ public class ReservedEntityQueryDslSupportApplicationTests {
 	public void withMetadata() {
 		groupRepository.queryWithMetadataQueryDsl();
 	}
-
 }

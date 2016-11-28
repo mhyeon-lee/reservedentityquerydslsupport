@@ -19,12 +19,15 @@ public class GroupRepository extends QueryDslRepositorySupport {
 		super(Group.class);
 	}
 
+	// Exception : org.hibernate.hql.internal.ast.InvalidPathException: Invalid path: 'group.name'
 	public void queryWithClassQueryDsl() {
 		JPQLQuery query = from(QGroup.group);
 		Sort sort = new Sort(Sort.DEFAULT_DIRECTION, "name");
 		getQuerydsl().applySorting(sort, query).fetch();
 	}
 
+
+	// OK : select group0_.id as id1_0_, group0_.name as name2_0_ from test_group group0_ order by group0_.name asc
 	public void queryWithMetadataQueryDsl() {
 		JPQLQuery query = from(QGroup.group);
 		Sort sort = new Sort(Sort.DEFAULT_DIRECTION, "name");
